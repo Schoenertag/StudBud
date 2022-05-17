@@ -1,0 +1,264 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin:0
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+/*
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0px;
+}
+
+p {
+  margin: 10px 0px;
+}
+
+img {
+  width: 100%
+}
+
+/*
+.navbar {
+  position: sticky;
+  background-color: lightgray;
+  height: 70px;
+  
+}
+*/
+
+.navbar .flex {
+  justify-content: space-between;
+}
+
+
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 40px; 
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  }
+
+.navbar a {
+  padding: 10px;
+  margin: 0 5px;
+  transition: font-size 0.3s, color 0.2s;
+}
+
+.navbar a:hover {
+  color: #ff4599;
+  font-size: 1.15em;
+}
+
+ul.nav > li:last-child {
+  background-color: #ff4599;
+  padding: 5px;
+  border-radius: 20px;
+}
+
+.createTask > button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  outline: none;
+  border: none;
+  background: transparent;
+  color:white;
+}
+
+/* TOP NAV BAR */
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: #e3e3e3;
+  padding: .25rem .5rem;
+  display: flex;
+  
+}
+
+header > img {
+  width: 100px;
+  height: 100px;
+}
+
+i	{
+  padding: 2rem;
+}
+
+i:hover {
+  color: #383838;
+  cursor: pointer;
+}
+
+header > button {
+  background: none;
+  border: none;
+  margin: none;
+  padding: none;
+}
+
+/* SIDEBAR */
+
+.mainContentContainer {
+  display: flex; 
+}
+
+.sidebar {
+  width: 75px;
+  height: 100%;
+  display: flex;
+  padding-top: 2em;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.sidebar > img {
+  margin: 0.5rem;
+}
+
+.sidebar > img:nth-child(-n + 2) {
+  width: 80px;
+  height: 80px;
+}
+
+.musicIcon {
+  width: 95px;
+  height: 95px;
+}
+
+
+
+
+/* Kanban Board */
+
+.kanbanBoardWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.taskColumn {
+  display: flex; 
+  flex-direction: column;
+  flex-flow: column wrap;
+  align-content: center;
+  
+}
+
+.taskColumn > div {
+  padding: 1em;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+/*
+.kanbanBoardWrapper > div {
+  display: grid;
+  padding: 1em;
+  grid-gap: 1em;
+}
+*/
+
+.statusHolder {
+  display: inline-block;
+}
+
+a.button {
+  background: #6868df;
+  padding: 0.3em 1em;
+  border-radius: 1em;
+  font-size: 0.8em;
+  color: white;
+  text-decoration: none;
+}
+
+.kanbanBoardWrapper > div:nth-child(odd) {
+  background: #f5f5f5;
+}
+
+
+.taskBox {
+  background: white;
+  padding: 30px;
+  border: 3px solid #9f91e3;
+  border-radius: 1.5em;
+  width: 450px;
+  display: inline-block;
+  margin-bottom: 1.5em;
+}
+
+
+.taskBox > p.assignmentID {
+  font-size: 1em;
+  color: #aaaaf3;
+  font-weight: 600;
+  
+}
+
+.taskBox > h1 {
+  font-size: 1.5em;
+}
+
+.taskBox > p.taskDescription {
+  color: #4a4a4a;
+  padding: 4px 0 4px 0;
+}
+
+.taskBox > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.dueDate {
+  color: grey;
+  list-style-type: none;
+}
+
+.unitCode {
+  background: #aaaaf3;
+  padding: 0.3em 1em;
+  border-radius: 2em;
+  color: white;
+  font-size: 0.8em
+}
+
+
+
