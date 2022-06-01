@@ -146,17 +146,50 @@ function addTask(assignmentName, taskName, dueDate, unitCode, taskDescription) {
 
 
 function renderTask(task) {
-  let item = document.createElement("taskBox");
-  item.innerHTML = "<p>" + task.assignmentName + "</p>";
+  let newTaskContainer = document.createElement("div");
+  newTaskContainer.classList.add("taskBox");
+  newTaskContainer.setAttribute("draggable", "true");
+  taskColumn.appendChild(newTaskContainer);
+  
+  let newAssignmentName = document.createElement("p");
+  newAssignmentName.innerHTML = task.assignmentName + " | ";
+  newAssignmentName.classList.add("assignmentID");
 
-  taskColumn.appendChild(item);
+  let newTaskName = document.createElement("h1");
+  newTaskName.innerHTML = task.taskName;
+  newTaskName.classList.add("taskName");
+
+  let newTaskDescription = document.createElement("p");
+  newTaskDescription.innerHTML = task.taskDescription;
+  newTaskDescription.classList.add("taskDescription");
+
+  let newTaskDetailsContainer = document.createElement("ul");
+  newTaskDetailsContainer.classList.add("taskDetails");
+  
+  let newDueDate = document.createElement("li");
+  newDueDate.classList.add("dueDate");
+  newDueDate.innerHTML = task.dueDate;
+  let newUnitCode = document.createElement("li");
+  newUnitCode.classList.add("unitCode");
+  newUnitCode.innerHTML = task.unitCode.toUpperCase();
+  
+
+  
+  newTaskContainer.appendChild(newAssignmentName);
+  newTaskContainer.appendChild(newTaskName);
+  newTaskContainer.appendChild(newTaskDescription);
+  newTaskContainer.appendChild(newTaskDetailsContainer);
+  
+  newTaskDetailsContainer.appendChild(newDueDate);
+  newTaskDetailsContainer.appendChild(newUnitCode);
+
 
   //create delete button
 
   let deleteBtn = document.createElement("button");
   let deleteBtnText = document.createTextNode("Delete Task");
   deleteBtn.appendChild(deleteBtnText);
-  item.appendChild(deleteBtn);
+  newTaskContainer.appendChild(deleteBtn);
 
   deleteBtn.addEventListener("click", function(event) {
     event.preventDefault();
