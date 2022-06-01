@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="preload">
+
+  <header>
+
+      <!-- TOP NAV BAR CODE
+      <div class="container flex"> 
+        <h1 class="logo">StudBud</h1>
+        <nav>
+          <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="">Timers</a></li>
+            <li><a href="">Dictionary</a></li>
+            <li><a href="" class="createTask"><button>+ Create Task</button></a></li>
+          </ul>
+        </nav>
+      </div>
+      -->
+
+      <!-- HEADER CODE -->
+      <div class="navBarLeft">
+        <button id="menuBtn">
+          <i class="fa-solid fa-bars fa-2xl"></i>
+        </button>
+        <img src="icons/studbud logo.svg" alt="StudBud Logo">
+      </div>
+      <button class="createTask" data-modal-target="#modal">+ Create Task</button>
+  </header>
+      
+
+    <div class="mainContentContainer">
+      <div class="sidebarContainer">
+        <aside class="sidebar"> 
+          <!-- <img src="studbud logo.svg" alt="StudBud Logo"> -->
+
+          <a href="index.html"><img class="" src="icons/kanban board.svg"></a>
+          <a href=""><img class="stopwatchIcon" src="icons/timer icon.svg" alt="stopwatch icon"></a>
+          <a href=""><img class="" src="icons/dictionary icon.svg"></a>
+          <a href="music.html"><img class="musicIcon" src="icons/music icon.svg"></a>
+        
+        </aside>
+      </div>
+
+      
+  <!-- Music Selection Screen -->
+      
+      <div class="playlistRowContainer">
+        <h1>Music Player</h1>
+          <h2>Instrumental</h2>
+            <div class="playlistRow">
+              
+              <div class="playlistCover hogwarts" id="playlistCover">
+                <audio class="hogwartsSong" src="Hedwig's Theme.mp3" id="audio"></audio>
+                <h3 class="fuck" id="name">Hogwarts Ambience<img class="playButton" src="icons/play.svg"></h3>
+                
+              </div>
+              
+              <div class="playlistCover bardcore">
+                <h3>Bardcore</h3>
+              </div>
+
+              <div class="playlistCover bardcore">
+                <h3>Bardcore</h3>
+              </div>
+
+              <div class="playlistCover bardcore">
+                <h3>Bardcore</h3>
+              </div>
+            </div>
+
+          <h2>Ambient Sounds</h2>
+            <div class="playlistRow">
+              
+                <div class="playlist"> 
+                  <h3>Rain</h3>
+                </div>
+                <div class="playlist"> 
+                  <img src="" alt="medieval">
+                  <h3>Fireplace</h3>
+                </div>
+            </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

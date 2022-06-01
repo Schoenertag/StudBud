@@ -103,23 +103,30 @@ ul.nav > li:last-child {
 }
 
 /* TOP NAV BAR */
+.navBarLeft {
+  display: flex;
+  align-items: center;
+}
 
 header {
   position: sticky;
+  left: 0;
   top: 0;
   background-color: #e3e3e3;
-  padding: .25rem .5rem;
   display: flex;
-  
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  overflow: auto;
 }
 
-header > img {
+header > .navBarLeft > img {
   width: 100px;
   height: 100px;
 }
 
 i	{
-  padding: 2rem;
+  margin: 2rem;
 }
 
 i:hover {
@@ -127,12 +134,34 @@ i:hover {
   cursor: pointer;
 }
 
-header > button {
+header > .navBarLeft > button {
   background: none;
   border: none;
   margin: none;
   padding: none;
 }
+
+.createTask {
+  margin: 2rem;
+}
+
+.createTask {
+  transition: font-size 0.3s, color 0.2s;
+  background-color: #ff4599;
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+}
+
+.createTask:hover {
+  background-color: #ee3a8b;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
 
 /* SIDEBAR */
 
@@ -141,7 +170,7 @@ header > button {
 }
 
 .sidebar {
-  width: 75px;
+  width: 90px;
   height: 100%;
   display: flex;
   padding-top: 2em;
@@ -150,28 +179,27 @@ header > button {
   align-items: center;
 }
 
-.sidebar > img {
+.sidebar > a > img {
   margin: 0.5rem;
-}
-
-.sidebar > img:nth-child(-n + 2) {
   width: 80px;
   height: 80px;
-}
-
-.musicIcon {
-  width: 95px;
-  height: 95px;
+  
 }
 
 
+.sidebar > a > img:hover {
+  background: #f2f2f2;
+  border-radius: 1em;
+  cursor: pointer;
+}
 
 
 /* Kanban Board */
 
 .kanbanBoardWrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: column;
+  overflow-x: auto;
 }
 
 .taskColumn {
@@ -187,14 +215,6 @@ header > button {
   margin-left: 1.5em;
   margin-right: 1.5em;
 }
-
-/*
-.kanbanBoardWrapper > div {
-  display: grid;
-  padding: 1em;
-  grid-gap: 1em;
-}
-*/
 
 .statusHolder {
   display: inline-block;
@@ -215,13 +235,14 @@ a.button {
 
 
 .taskBox {
-  background: white;
-  padding: 30px;
+  background: #ffffff;
+  padding: 1rem;
   border: 3px solid #9f91e3;
   border-radius: 1.5em;
-  width: 450px;
+  width: 24rem;
   display: inline-block;
   margin-bottom: 1.5em;
+  cursor: move;
 }
 
 
@@ -247,6 +268,10 @@ a.button {
   justify-content: space-between;
 }
 
+.taskBox.dragging {
+  opacity: 0.6;
+}
+
 .dueDate {
   color: grey;
   list-style-type: none;
@@ -260,5 +285,213 @@ a.button {
   font-size: 0.8em
 }
 
+
+/* Create Task Popup */
+.modal {
+  position: fixed;
+  z-index: 99;
+  top: 50%;
+  left: 50%;
+  background: white;
+  transform: translate(-50%, -50%) scale(0);
+  width: 300px;
+  height: 350px;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+
+.modal > form > h1 {
+  font-size: 1.5em;
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+/*
+.modal > form > button:nth-last-of-type(-n+2) {
+  text-align: center;
+  background-color: #ededed;
+  margin: 1rem;
+  padding: 0.4rem 1.7rem;
+  font-size: 1.1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  display: inline-block;
+  width: fit-content;
+  font-family: 'Montserrat', sans-serif;
+  color: #a1a1a1;
+  
+}
+
+*/
+
+.modal > form >  button:nth-last-of-type(-n+2):hover {
+  background-color: #dedede;
+  cursor: pointer;
+}
+
+form input {
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  margin: 0.3rem;
+  border-bottom: 1px solid black;
+  outline: none;
+  font-size: 1em;
+  font-family: "Montserrat", sans-serif;
+  
+}
+
+::placeholder {
+  color: #bfbfbf;
+}
+
+  /* make background blurry */
+#overlay {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px) brightness(80%);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+button img {
+  width: 2.2em;
+  height: 2em;
+  padding: 0.4rem;
+}
+
+
+.closeButton {
+  background: none;
+  border: none;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+  color: #ededed;
+  border-radius: 50%;
+}
+
+
+/* MUSIC PLAYER STYLING */
+
+
+.playlistRow {
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 25%;
+
+  overflow-x: auto;
+}
+
+.playlistCover {
+  padding: 1rem;
+  width: 18rem;
+  height: 11rem;
+  border-radius: 1rem;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  font-weight: 300;
+  transition: filter 0.2s;
+  
+}
+
+.playlistCover:hover {
+  cursor: pointer;
+  /* filter: brightness(70%); */
+}
+
+.playlistCover > h3 {
+  animation-name: textRiseReverse;
+  animation-duration: 0.2s;
+  padding-left: 0;
+}
+
+
+.playlistCover:hover > h3 {
+  animation-name: textRise;
+  animation-duration: 0.2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-play-state: revert;
+}
+
+.playlistCover > h3 > img {
+  opacity: 0%;
+  transition: opacity 0.2s;
+}
+
+.playlistCover:hover > h3 > img {
+  opacity: 100%
+}
+
+
+.playlistCover.hogwarts {
+  background-image: url(https://images.unsplash.com/photo-1618944913480-b67ee16d7b77?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+  background-size: cover;
+}
+
+.playlistCover.bardcore {
+  background-image: url(https://images.unsplash.com/photo-1553986782-9f6de60b51b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1449&q=80);
+  background-size: cover;
+}
+
+@keyframes textRise{
+  from {
+    padding-bottom: 0; 
+  }
+
+  to {
+    padding-bottom: 10px;
+  }
+}
+
+@keyframes textRiseReverse{
+  from {
+    padding-bottom: 10px;
+  }
+  
+  to {
+    padding-bottom: 0;
+  }
+}
+
+.playButton {
+  width: 30px;
+  height: 30px;
+}
+
+h3 {
+  display: flex;
+  align-items: center;
+}
 
 

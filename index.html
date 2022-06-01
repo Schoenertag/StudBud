@@ -11,6 +11,39 @@
 </head>
 
 <body>
+    
+    <!-- Create Task Box -->
+      <div class="modal active" id="modal">
+        <!--
+        <form>
+          <h1>What are you creating?</h1>
+          <button class="assignmentSelect">Assignment</button>
+          <button class="taskSelect">Task</button>
+        </form>
+        -->
+
+        <form id="createTaskForm"> 
+
+          
+          <button class="closeButton" data-close-button>
+            <img class="" src="icons/x.svg">
+          </button>
+          <input type="text" placeholder="Assignment Name" id="assignmentNameInput">
+          <input type="text" placeholder="Task Name" required id="taskNameInput">
+          <input type="text" placeholder="Unit Code" required id="unitCodeInput">
+          <label for="dueDate">Due Date: </label><input type="date" required id="dueDateInput">
+          
+          <input type="text" placeholder="Task Description" id="taskDescriptionInput"></input>
+
+          <button type="submit" id="addButton">Add</button>
+            
+        </form>
+      </div>
+
+  
+    <div id="overlay" class="active"></div>
+
+  
   <!-- Navigation Bar -->
     <header>
 
@@ -29,12 +62,13 @@
       -->
 
       <!-- SIDEBAR CODE -->
-
-      <button id="menuBtn">
-        <i class="fa-solid fa-bars fa-2xl"></i>
-      </button>
-      <img src="studbud logo.svg" alt="StudBud Logo">
-      
+      <div class="navBarLeft">
+        <button id="menuBtn">
+          <i class="fa-solid fa-bars fa-2xl"></i>
+        </button>
+        <img src="icons/studbud logo.svg" alt="StudBud Logo">
+      </div>
+      <button class="createTask" data-modal-target="#modal">+ Create Task</button>
     </header>
       
 
@@ -42,23 +76,29 @@
       <div class="sidebarContainer">
         <aside class="sidebar"> 
           <!-- <img src="studbud logo.svg" alt="StudBud Logo"> -->
-          <img class="stopwatchIcon" src="timer icon.svg" alt="stopwatch icon">
-          <img class="" src="dictionary icon.svg">
-          <img class="" src="music icon.svg">
+
+          <a href="index.html"><img class="" src="icons/kanban board.svg"></a>
+          <a href=""><img class="stopwatchIcon" src="icons/timer icon.svg" alt="stopwatch icon"></a>
+          <a href="dictionary.html"><img class="" src="icons/dictionary icon.svg"></a>
+          <a href="music.html"><img class="musicIcon" src="icons/music icon.svg"></a>
           
         </aside>
       </div>
+
+      
+    
+      
     
     <!-- Kanban Board -->
       <div class="kanbanBoardWrapper">
   
-        <div class="taskColumn">
+        <div class="taskColumn toDo">
           <div class="statusHolder">
             <a href="" class="button">To Do</a>
           </div>
           
           <!-- Task Box -->
-          <div class="taskBox">
+          <div class="taskBox" draggable="true">
             <p class="assignmentID">Assignment 3 | Stage 2: Synthesis</p><hr>
             <h1 class="taskName">User Persona 1</h1>
             <p class="taskDescription">Map out observations/quotes from research and sort into themes.</p>
@@ -66,38 +106,20 @@
               <li class="dueDate">Due in 5 Days</li>
               <li class="unitCode">DECO2017</li>
             </ul>
-          </div>
-  
-          <div class="taskBox">
-            <p class="assignmentID">Assignment 3 | Stage 2: Synthesis</p><hr>
-            <h1 class="taskName">User Persona 1</h1>
-            <p class="taskDescription">Map out observations/quotes from research and sort into themes.</p>
-            <ul class="task">
-              <li class="dueDate">Due in 5 Days</li>
-              <li class="unitCode">DECO2017</li>
-            </ul>
-          </div>
-  
-          <div class="taskBox">
-            <p class="assignmentID">Assignment 3 | Stage 2: Synthesis</p><hr>
-            <h1 class="taskName">User Persona 1</h1>
-            <p class="taskDescription">Map out observations/quotes from research and sort into themes.</p>
-            <ul class="task">
-              <li class="dueDate">Due in 5 Days</li>
-              <li class="unitCode">DECO2017</li>
-            </ul>
-          </div>
+          </div> 
           
         </div>
+
         
         <div class="taskColumn">
           <div class="statusHolder">
             <a href="" class="button">Doing</a>
           </div>
-  
-          <div class="taskBox">
+
+          
+          <div class="taskBox" draggable="true">
             <p class="assignmentID">Assignment 3 | Stage 2: Synthesis</p><hr>
-            <h1 class="taskName">User Persona 1</h1>
+            <h1 class="taskName">Other Thing</h1>
             <p class="taskDescription">Map out observations/quotes from research and sort into themes.</p>
             <ul class="task">
               <li class="dueDate">Due in 5 Days</li>
@@ -110,11 +132,24 @@
           <div class="statusHolder">
             <a href="" class="button">Done</a>
           </div>
+
+          <div class="taskBox">
+            <p class="assignmentID">Assignment 3 | Stage 2: Synthesis</p><hr>
+            <h1 class="taskName">User Persona 1</h1>
+            <p class="taskDescription">Map out observations/quotes from research and sort into themes.</p>
+            <ul class="task">
+              <li class="dueDate">Due in 5 Days</li>
+              <li class="unitCode">DECO2017</li>
+            </ul>
+          </div>
         </div>
-        
+
+        <input id="searchedWord" value="Search for a word"></input>
+      <button id="submitButton">Submit</button>
       </div>
 
     </div>
+
   
     
   <script src="script.js"></script>
