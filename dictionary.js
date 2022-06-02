@@ -1,13 +1,19 @@
 const btn = document.getElementById("submitButton");
 const searchResultContainer = document.getElementById("definitionsContainer")
-const synonymContainer = document.getElementById("synonymsContainer");
+
 
 //DICTIONARY 
 var api = "https://api.dictionaryapi.dev/api/v2/entries/en/"
 //add word thats getting looked up at the end of the link
 
+let amountOfClicks = 0;
 
 btn.addEventListener('click', () => {
+  amountOfClicks++;
+  if (amountOfClicks > 1) {
+    resetSearchContainer(searchResultContainer);
+    amountOfClicks = 0;
+  }
   console.log("click has been detected");
   const searchedWord = document.getElementById("searchedWord");
   getDefinition(searchedWord.value);
@@ -58,17 +64,19 @@ function renderDefinition(wordData) {
   wordDefinition.innerHTML = wordData[0].meanings[0].definitions[0].definition;
   searchResultContainer.appendChild(wordDefinition);
 
+
+  //For Synonyms
   let synonymHeading = document.createElement("h3");
   synonymHeading.innerHTML = "Synonyms";
   searchResultContainer.appendChild(synonymHeading);
-
-  
-  //synonyms.innerHTML = wordData[0].meanings[3].synonyms[0];
   
   
-  //console.log(hopefullySynonym.length);
+  
+ 
   findSynonyms(wordData);
+  
 }
+
 
 function findSynonyms(wordInput) {
   //loop through all meanings
@@ -86,10 +94,23 @@ function findSynonyms(wordInput) {
   }
 }
 
+
 function printSynonyms(synonymArray) {
+  let synonymContainer = document.createElement("div");
+  synonymContainer.classList.add("synonymsContainer");
+  searchResultContainer.appendChild(synonymContainer);
   for (let i = 0; i < synonymArray.length; i++) {
     let synonym = document.createElement("p");
     synonym.innerHTML = synonymArray[i];
+    synonym.classList.add("synonym")
     synonymContainer.appendChild(synonym);
+    
   }
+}
+
+function resetSearchContainer(searchResultContainer) {
+  //removes all child nodes of the search container
+    while (searchResultContainer.firstChild) {
+        searchResultContainer.removeChild(searchResultContainer.firstChild);
+    }
 }

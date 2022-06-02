@@ -241,22 +241,3 @@ playlistCover.forEach(playlistCover => {
     });
 });
 
-
-//DICTIONARY 
-var api = "https://api.dictionaryapi.dev/api/v2/entries/en/"
-//add word thats getting looked up at the end of the link
-var searchedWord = "happy";
-
-window.onload=function(){
-  
-}
-
-
-function getDefinition() {
-  var link = api + searchedWord;
-  LOADJSON(link, gotData);
-}
-
-function gotData(data) {
-  definition = data;
-}
