@@ -23,7 +23,7 @@
   </header>
       
   
-  <div class="mainContentContainer">
+  <div class="mainContentContainer timers">
 
     
     <!-- SIDEBAR CODE -->
@@ -38,24 +38,35 @@
     </div>
 
 
-    <!-- Dictionary Code -->
-    <div class="dictionaryContainer">
-      <h1>Dictionary</h1>
+    <!-- Stopwatch Code --> 
     
-        <p class="searchFunctionContainer">
-          <input id="searchedWord" placeholder="Search for a word"></input>
-          <button id="submitButton">Search</button>
-        </p>
-  
-        <div id="definitionsContainer">
-        
-        </div>
+    <div class="wrapper">
+      <h1>Timers.</h1>
+      <div class="timerContainer">
+        <p>Pomodoro</p>
+        <p id="pomodoro">00:25:00</p>
+        <button id="pomodoroStart">Start</button>
+        <button id="stopPom">Stop</button>
+        <button id="pomodoroReset">Reset</button>
       </div>
+
+      <div class="timerContainer">
+        <p>Stopwatch</p>
+        <p id="stopwatch">00:00:00</p>
+        <button id="swStart">Start</button>
+        <button id="stopSw">Stop</button>
+        <button id="swReset">Reset</button>
+      </div>
+      
+      
+    </div>
+    
+      
   </div>
 
  
     
-  <script src="dictionary.js"></script>
+  <script src="timers.js"></script>
   
 </body>
 

@@ -11,6 +11,7 @@ let amountOfClicks = 0;
 btn.addEventListener('click', () => {
   amountOfClicks++;
   if (amountOfClicks > 1) {
+    //when user searches a new word, reset the search results and render the new one
     resetSearchContainer(searchResultContainer);
     amountOfClicks = 0;
   }
@@ -69,10 +70,7 @@ function renderDefinition(wordData) {
   let synonymHeading = document.createElement("h3");
   synonymHeading.innerHTML = "Synonyms";
   searchResultContainer.appendChild(synonymHeading);
-  
-  
-  
- 
+
   findSynonyms(wordData);
   
 }
