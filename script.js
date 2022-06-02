@@ -14,13 +14,16 @@ openModalButtons.forEach(button => {
 
 
 //When background is clicked, close modal
-overlay.addEventListener('click', () => {
+if (overlay != null ) {
+  overlay.addEventListener('click', () => {
   //find every modal that is open
   const modals = document.querySelectorAll('.modal.active');
-  modals.forEach(modal => {
-    closeModal(modal);
-  });
-});
+    modals.forEach(modal => {
+      closeModal(modal);
+    });
+  });  
+};
+
 
 
 closeModalButtons.forEach(button => {
@@ -132,6 +135,7 @@ form.addEventListener("submit", function(event) {
 
 
 function addTask(assignmentName, taskName, dueDate, unitCode, taskDescription) {
+  
   let task = {
     assignmentName,
     taskName, 
@@ -146,6 +150,7 @@ function addTask(assignmentName, taskName, dueDate, unitCode, taskDescription) {
 
 
 function renderTask(task) {
+  
   let newTaskContainer = document.createElement("div");
   newTaskContainer.classList.add("taskBox");
   newTaskContainer.setAttribute("draggable", "true");
@@ -174,7 +179,7 @@ function renderTask(task) {
   newUnitCode.innerHTML = task.unitCode.toUpperCase();
   
 
-  
+  //print task details to To-Do column
   newTaskContainer.appendChild(newAssignmentName);
   newTaskContainer.appendChild(newTaskName);
   newTaskContainer.appendChild(newTaskDescription);

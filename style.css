@@ -18,39 +18,6 @@ body {
   line-height: 1.6;
 }
 
-/*
-ul {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: #333;
-}
-
-
-h2 {
-  font-weight: 300;
-  line-height: 1.2;
-  margin: 10px 0px;
-}
-
-p {
-  margin: 10px 0px;
-}
-
-img {
-  width: 100%
-}
-
-/*
-.navbar {
-  position: sticky;
-  background-color: lightgray;
-  height: 70px;
-  
-}
-*/
 
 .navbar .flex {
   justify-content: space-between;
@@ -401,8 +368,6 @@ button img {
 
 
 /* MUSIC PLAYER STYLING */
-
-
 .playlistRow {
   display: grid;
   gap: 1rem;
@@ -495,3 +460,27 @@ h3 {
 }
 
 
+/* DICTIONARY */
+
+.dictionaryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+#definitionsContainer {
+  background: #EEF2FA;
+  width: 25rem;
+  height: 40rem;
+  margin: 3rem;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+}
+
+#definitionsContainer 
+
+#synonymsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
