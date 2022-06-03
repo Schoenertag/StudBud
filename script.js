@@ -73,35 +73,10 @@ containers.forEach(container => {
     //const afterElement = getDraggablePosition(container, e.clientY); //passes in users mouse position on screen
     const draggable = document.querySelector('.dragging');
     container.appendChild(draggable);
-    /*
-    if (afterElement == null) {
-      //if dragged element is not above anything, append child to end of list
-      container.appendChild(draggable);
-    } else {
-      //if dragged element IS above something, insert it before the element its on top of
-      container.insertBefore(draggable, afterElement);
-    }
-    */
-    
   });
 });
 
 
-/*
-function getDraggablePosition(container, y) {
-  const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]; //gets every other draggable element that isnt currently being dragged in an array
-
-  return draggableElements.reduce((closest, child) => {
-    const box = child.getBoundingClientRect();
-    const offset = y - box.top - box.height / 2;
-    if (offset < 0 && offset > closest.offset) {
-      return { offset: offset, element: child }
-    } else {
-      return closest
-    }
-  }, { offset: Number.NEGATIVE_INFINITY }).element
-}
-*/
 
 
 //KANBAN BOARD TASK CREATION
@@ -203,31 +178,3 @@ function renderTask(task) {
 
   form.reset();
 }
-
-//MUSIC PLAYER 
-/*
-const playlistCover = document.getElementsByClassName('playlistCover');
-const playlistName = document.getElementsByClassName("playlistName");
-const audio = document.getElementById("audio");
-
-console.log("this is" + playlistCover);
-
-const hogwartsAmbienceTracks = ["Hedwig's Theme"];
-
-playlistCover.addEventListener("click", () => {
-  const isPlaying = playlistCover.classList.contains("playing");
-
-  if (isPlaying) {
-    pauseSong();
-  }
-  else {
-    playSong();
-  }
-});
-
-function playSong() {
-  playlist.classList.add("playing");
-  audio.play();
-}
-*/
-
