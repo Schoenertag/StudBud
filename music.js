@@ -1,9 +1,7 @@
 
 
 //add event listener listening for document ready (onload)
-
-
-let playlistCovers = document.getElementsByClassName('playlistCover');
+const playlistCovers = document.getElementsByClassName('playlistCover');
 const playlistNameArray = document.getElementsByClassName("playlistName");
 const audio = document.getElementById("audio");
 const statusIcon = document.getElementById("statusIcon");
@@ -21,74 +19,51 @@ class playlist {
 
 let hogwartsPlaylist = new playlist("Hogwarts Ambience", ["Hedwig's Theme.mp3"]);
 let bardcorePlaylist = new playlist("Bardcore", ["Never Gonna Give You Up (Medieval Cover).mp3"]);
-let playlists = [hogwartsPlaylist, bardcorePlaylist];
+let studioGhibli = new playlist("Studio Ghibli OST", ["A town with an ocean view.mp3"]);
+let witcherAmbience = new playlist("The Witcher III", ["Kaer Morhen.mp3"]);
+let rain = new playlist("Rain Sounds", ["rain sounds.mp3"]);
+let lofi = new playlist("Lofi", ["Forest Lullaby.mp3"]);
+let fireplace = new playlist("Fireplace", ["Fireplace.mp3"])
 
+let playlists = [hogwartsPlaylist, bardcorePlaylist, rain, studioGhibli, witcherAmbience, lofi, fireplace];
 
-/* 
-let playlists = [
-  {
-    playlistName = ,
-    tracklist = 
-  }, 
-  {
-    playlistName = "Bardcore", 
-    tracklist = ["Never Gonna Give You Up (Medieval Cover).mp3"]
-  }
-  
-]
-  */
-
-
-
-function loadPlaylist(playlistsDisplayed) {
-  //update song name, 
-  for (let j = 0; j < playlistsDisplayed.length; j++) {
-    //loop through all playlist names currently displayed on the page
-    for (let y = 0; y < playlists.length; y++) {
-      console.log(playlistsDisplayed[j].innerText)
-      //if displayed playlist name matches with a playlist object in array, play its tracklist
-      if (playlistsDisplayed[j].innerText == playlists[y].playlistName) {
-        let songToPlay = playlists[y].tracklist[0];
-        playSong(songToPlay);
-      }
-    }
-  }
-}
 
 
 function loadPlaylist(playlistName) {
   //update song name, 
-for (let y = 0; y < playlists.length; y++) {
-  if (playlistName.innerHTML == playlists[y].playlistName) {
-    let songToPlay = playlists[y].tracklist[0];
-    playSong(songToPlay);
+  let playlistStatusIcon = playlistName.firstElementChild;
+  for (let y = 0; y < playlists.length; y++) {
+    if (playlistName.innerText == playlists[y].playlistName) {
+      let songToPlay = playlists[y].tracklist[0];
+      playSong(songToPlay, playlistStatusIcon);
+    }
   }
-}
+} 
 
 
 for (let x = 0; x < playlistCovers.length; x++) {
   playlistCovers[x].addEventListener("click", () => {
     console.log("click is being detected");
-    //
-    //console.log(playlistNameArray);
 
     //get playlist cover's h3 (the playlists name, then pass that into load playlist function)
-
-    playlistCovers[x].childNodes
-    //let playlistAudio = playlistCovers[x].childNodes[1];
     
+    let playlistName = playlistCovers[x].firstElementChild;
+    console.log(playlistName);
+    //console.log(firstChild);
+    //let playlistAudio = playlistCovers[x].childNodes[1];
+
     const isPlaying = audio.classList.contains("playing");
     if (isPlaying) {
-      pauseSong();
+      pauseSong(playlistName.firstElementChild);
     }
     else {
-      loadPlaylist(playlistNameArray);
+      loadPlaylist(playlistName);
     }
   })
 }
 
 
-function playSong(songToPlay) {
+function playSong(songToPlay, statusIcon) {
   
   audio.classList.add("playing");
   statusIcon.classList.replace("playButtonActive", "pauseButtonActive");
@@ -99,15 +74,19 @@ function playSong(songToPlay) {
 
 
 
-function pauseSong() {
+function pauseSong(statusIcon) {
   audio.classList.remove("playing");
   statusIcon.classList.replace("pauseButtonActive", "playButtonActive");
   statusIcon.src = "icons/play.svg";
   audio.pause();
 }
 
+//TODO - if one playlist is clicked, then another, the previously playing one will automatically stop
+
 
 
 //find out which playlist has been clicked (hogwarts, bardcore, etc)
+
+//if song ends, change icon back to play
 
 //store songs for each playlist in specific arrays, and play them when that playlist has been selected
