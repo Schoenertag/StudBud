@@ -600,3 +600,15 @@ h3 {
 .stopwatch > .controlsContainer button {
   color: #4865C4;
 }
+
+/*Mobile Formatting */
+
+.sidebarContainer.toggleOn {
+  display: inline;
+}
+
+@media screen and (max-width: 799px) {
+   .sidebarContainer {
+       display:none;
+   }
+}
