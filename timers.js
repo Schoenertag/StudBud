@@ -48,7 +48,7 @@ function resetPom() {
   pomodoroDisplay.innerHTML = "00:25:00";
 }
 
-
+//TODO - When pomodoro timer hits 00:00:00, reset it and/or set off an alarm letting user know time is up
 
 
 //STOPWATCH TIMER

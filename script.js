@@ -231,13 +231,3 @@ function playSong() {
 }
 */
 
-const playlistCover = document.querySelectorAll(".playlistCover");
-
-console.log(playlistCover);
-
-playlistCover.forEach(playlistCover => {
-    playlistCover.addEventListener("click", () => {
-        console.log("fuck me");
-    });
-});
-
