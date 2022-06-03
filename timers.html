@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/a9d770cd41.js" crossorigin="anonymous"></script>
   
 </head>
 
@@ -42,20 +43,30 @@
     
     <div class="wrapper">
       <h1>Timers.</h1>
-      <div class="timerContainer">
+      <div class="timerContainer pomodoro">
         <p>Pomodoro</p>
-        <p id="pomodoro">00:25:00</p>
-        <button id="pomodoroStart">Start</button>
-        <button id="stopPom">Stop</button>
-        <button id="pomodoroReset">Reset</button>
+        <div class="timerDisplay">
+          <img src="icons/tomato.svg" alt="pomodoro timer illustration">
+          <p id="pomodoro">00:25:00</p>
+          <div class="controlsContainer">
+            <button id="pomodoroStart">Start</button>
+            <button id="stopPom">Stop</button>
+            <button id="pomodoroReset">Reset</button>
+          </div>
+        </div>
       </div>
 
-      <div class="timerContainer">
+      <div class="timerContainer stopwatch">
         <p>Stopwatch</p>
-        <p id="stopwatch">00:00:00</p>
-        <button id="swStart">Start</button>
-        <button id="stopSw">Stop</button>
-        <button id="swReset">Reset</button>
+        <div class="timerDisplay">
+          <img src="icons/stopwatch.svg" alt="stopwatch illustration">
+          <p id="stopwatch">00:00:00</p>
+          <div class="controlsContainer">
+            <button id="swStart">Start</button>
+            <button id="stopSw">Stop</button>
+            <button id="swReset">Reset</button>
+          </div>
+        </div>
       </div>
       
       
