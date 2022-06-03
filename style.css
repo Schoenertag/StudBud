@@ -485,57 +485,57 @@ h3 {
 }
 
 /* TIMERS */
-/* TIMERS */
 .wrapper {
-margin: auto;
+  margin: auto;
+}
+
+.wrapper h1 {
+  text-align: center;
+  padding: 1rem;
 }
 
 .timerContainer {
- 
-	    display: flex; 
-	    flex-direction: column;
-  
-    align-items: center;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
   margin: 20px;
   padding: 4rem;
   border-radius: 3rem;
- box-shadow: 0px 2px 5px #cfcfcf;
+  box-shadow: 0px 2px 5px #cfcfcf;
 }
 	 
- .timerContainer.pomodoro {
-
-  outline: 5px solid #F8E4E4;
- }
-
- .timerContainer.stopwatch {
-
+.timerContainer.pomodoro {
   outline: 5px solid #F8E4E4;
 }
 
- .timerContainer h1 {
-   font-size: 4em;
- }
+.timerContainer.stopwatch {
+  outline: 5px solid #F8E4E4;
+}
+
+
+.timerContainer h2 {
+  text-align: center;
+}
 
 .timerDisplay  {
   padding: 2rem 1.5rem;
-   background-color: #f5f5f5;
- border-radius: 2rem;
- display: flex;
-   flex-direction: column;
- align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .timerDisplay p {
  font-size: 3em;
- font-weight: 700;
-   
+ font-weight: 700;  
 }
 
- .timerDisplay.pomodoro p {
+.timerDisplay.pomodoro p {
   color: #F36666;
 }
 
- .timerDisplay.stopwatch p {
+.timerDisplay.stopwatch p {
   color: #4865C4;
 }
 
@@ -545,10 +545,10 @@ margin: auto;
 }
 
 .controlsContainer button {
-   margin: 1rem;
+  margin: 1rem;
   border: none;
-   padding: 0.3rem 0.7rem;
-   font-family: 'Montserrat', sans-serif;
+  padding: 0.3rem 0.7rem;
+  font-family: 'Montserrat', sans-serif;
   border-radius: 3rem;
   font-size: 1rem;
   cursor: pointer;
@@ -556,9 +556,21 @@ margin: auto;
 }
 
 .pomodoro > .controlsContainer button {
-   color: #F36666;
+  color: #F36666;
  }
 
- .stopwatch > .controlsContainer button {
+.stopwatch > .controlsContainer button {
   color: #4865C4;
- }
+}
+
+/*Mobile Formatting */
+
+.sidebarContainer.toggleOn {
+  display: inline;
+}
+
+@media screen and (max-width: 799px) {
+  .sidebarContainer {
+    display:none;
+  }
+}
