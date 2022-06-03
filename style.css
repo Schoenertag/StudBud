@@ -350,17 +350,35 @@ button img {
 
 
 /* MUSIC PLAYER STYLING */
+
+.playlistRowContainer {
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  
+}
+
 .playlistRow {
   display: grid;
-  gap: 1rem;
   grid-auto-flow: column;
-  grid-auto-columns: 25%;
-
   overflow-x: auto;
+  justify-content: start;
+  width: 100%;
+}
+
+.playlistRowContainer h2 {
+  padding-top: 1.5rem;
+  padding-bottom: 0.4rem;
+  font-size: 1.1rem;
+  color: #424242;
 }
 
 .playlistCover {
   padding: 1rem;
+  margin: 1rem;
   width: 18rem;
   height: 11rem;
   border-radius: 1rem;
@@ -374,6 +392,7 @@ button img {
 
 .playlistCover:hover {
   cursor: pointer;
+  /* filter: brightness(70%); */
 }
 
 .playlistCover > h3 {
@@ -406,9 +425,36 @@ button img {
 }
 
 .playlistCover.bardcore {
-  background-image: url(https://images.unsplash.com/photo-1553986782-9f6de60b51b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1449&q=80);
+  background-image: url(https://external-preview.redd.it/Z6wvktf259wvoR_fUTN6KEk-NNlbf7GDncWH86sqnac.jpg?auto=webp&s=af7c135d328929d09bd02c765a4e934dcdbdc913);
   background-size: cover;
 }
+
+.playlistCover.studioGhibli {
+  background-image: url(https://mymodernmet.com/wp/wp-content/uploads/2021/01/studio-ghibli-history-7.jpg);
+  background-size: cover;
+}
+
+.playlistCover.witcher {
+  background-image: url(https://c4.wallpaperflare.com/wallpaper/985/837/295/the-witcher-the-witcher-3-wild-hunt-kaer-morhen-geralt-of-rivia-hd-wallpaper-preview.jpg);
+  background-size: cover;
+}
+
+
+.playlistCover.rain {
+  background-image: url(https://images.unsplash.com/photo-1496034663057-6245f11be793?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-size: cover;
+}
+
+.playlistCover.lofi {
+  background-image: url(https://i.ytimg.com/vi/tgI6PjEq0O8/maxresdefault.jpg);
+  background-size: cover;
+}
+
+.playlistCover.fireplace {
+  background-image: url(https://images.unsplash.com/photo-1538250934773-edd3e8e185c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+  background-size: cover;
+}
+
 
 @keyframes textRise{
   from {

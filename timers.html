@@ -7,6 +7,7 @@
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script src="https://kit.fontawesome.com/a9d770cd41.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="icons/studbud logo favicon.svg">
   
 </head>
 
@@ -28,7 +29,7 @@
 
     
     <!-- SIDEBAR CODE -->
-    <div class="sidebarContainer">
+    <div class="sidebarContainer" id="sidebarDisplay">
       <aside class="sidebar"> 
 
         <a href="index.html"><img class="" src="icons/kanban board.svg"></a>
@@ -44,9 +45,9 @@
     <div class="wrapper">
       <h1>Timers.</h1>
       <div class="timerContainer">
-        <h2>Pomodoro</p>
+        <h2>Pomodoro</h2>
         <div class="timerDisplay pomodoro">
-          <img src="icons/tomato.svg" alt="pomodoro timer illustration">
+          <img src="icons/tomato.svg">
           <p id="pomodoro">00:25:00</p>
           <div class="controlsContainer">
             <button id="pomodoroStart">Start</button>
@@ -57,9 +58,9 @@
       </div>
 
       <div class="timerContainer">
-        <h2>Stopwatch</p>
+        <h2>Stopwatch</h2>
         <div class="timerDisplay stopwatch">
-          <img src="icons/stopwatch.svg" alt="stopwatch illustration">
+          <img src="icons/stopwatch.svg">
           <p id="stopwatch">00:00:00</p>
           <div class="controlsContainer">
             <button id="swStart">Start</button>
@@ -78,6 +79,7 @@
  
     
   <script src="timers.js"></script>
+  <script src="common.js"></script>
   
 </body>
 
